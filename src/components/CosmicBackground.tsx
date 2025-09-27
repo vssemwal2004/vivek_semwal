@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import cosmicBg from '@/assets/cosmic-bg.jpg';
+import { TrendingFogEffects, LaserBeamEffects, EnhancedParticles, HolographicOverlay } from './TrendingEffects';
 
 // Starfield component
 function Starfield() {
@@ -151,6 +152,12 @@ export default function CosmicBackground() {
         <Scene3D />
       </Canvas>
       
+      {/* Enhanced Effects */}
+      <TrendingFogEffects />
+      <LaserBeamEffects />
+      <EnhancedParticles />
+      <HolographicOverlay />
+      
       {/* Lens flares */}
       <LensFlares />
       
@@ -159,6 +166,3 @@ export default function CosmicBackground() {
     </div>
   );
 }
-
-// React import fix
-import { useState } from 'react';

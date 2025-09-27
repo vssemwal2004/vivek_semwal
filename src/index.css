@@ -199,7 +199,7 @@
     animation: lens-flare-pulse 2s ease-in-out infinite;
   }
   
-  /* Fog Animation */
+  /* Cosmic fog effect */
   .cosmic-fog {
     position: absolute;
     width: 200%;
@@ -209,6 +209,47 @@
       transparent 70%
     );
     animation: fog-drift 20s linear infinite;
+  }
+
+  /* Advanced lens flare effects */
+  .lens-flare {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: lens-flare-pulse 2s ease-in-out infinite;
+    background: radial-gradient(circle, 
+      hsl(var(--lens-flare-1) / 0.8) 0%,
+      hsl(var(--lens-flare-1) / 0.4) 30%,
+      transparent 70%
+    );
+    filter: blur(2px);
+  }
+
+  /* Trending fog animations */
+  .trending-fog {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: conic-gradient(
+      hsl(var(--purple-neon) / 0.1),
+      hsl(var(--cyan-bright) / 0.1),
+      hsl(var(--hologram-1) / 0.1),
+      hsl(var(--purple-neon) / 0.1)
+    );
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: trending-fog-drift 25s ease-in-out infinite;
+  }
+
+  /* Laser beam effects */
+  .laser-beam {
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      hsl(var(--cyan-bright) / 0.8) 50%,
+      transparent 100%
+    );
+    height: 2px;
+    animation: laser-sweep 3s ease-in-out infinite;
   }
 }
 
@@ -239,6 +280,31 @@
   @keyframes fog-drift {
     0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
     100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+  }
+
+  @keyframes trending-fog-drift {
+    0%, 100% { 
+      transform: translateX(-50%) translateY(-50%) rotate(0deg) scale(1);
+      opacity: 0.3;
+    }
+    25% { 
+      transform: translateX(-50%) translateY(-50%) rotate(90deg) scale(1.2);
+      opacity: 0.6;
+    }
+    50% { 
+      transform: translateX(-50%) translateY(-50%) rotate(180deg) scale(0.8);
+      opacity: 0.4;
+    }
+    75% { 
+      transform: translateX(-50%) translateY(-50%) rotate(270deg) scale(1.1);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes laser-sweep {
+    0% { transform: translateX(-200px); opacity: 0; }
+    50% { transform: translateX(0px); opacity: 1; }
+    100% { transform: translateX(200px); opacity: 0; }
   }
   
   @keyframes starfield-twinkle {

@@ -112,6 +112,8 @@ export default {
         'particle-fade': 'particle-fade 1s ease-out forwards',
         'lens-flare': 'lens-flare-pulse 2s ease-in-out infinite',
         'fog-drift': 'fog-drift 20s linear infinite',
+        'trending-fog-drift': 'trending-fog-drift 25s ease-in-out infinite',
+        'laser-sweep': 'laser-sweep 3s ease-in-out infinite',
         'float-slow': 'float 6s ease-in-out infinite',
         'float-medium': 'float 4s ease-in-out infinite',
         'float-fast': 'float 2s ease-in-out infinite',
@@ -165,6 +167,29 @@ export default {
         "fog-drift": {
           "0%": { transform: "translateX(-50%) translateY(-50%) rotate(0deg)" },
           "100%": { transform: "translateX(-50%) translateY(-50%) rotate(360deg)" }
+        },
+        "trending-fog-drift": {
+          "0%, 100%": { 
+            transform: "translateX(-50%) translateY(-50%) rotate(0deg) scale(1)",
+            opacity: "0.3"
+          },
+          "25%": { 
+            transform: "translateX(-50%) translateY(-50%) rotate(90deg) scale(1.2)",
+            opacity: "0.6"
+          },
+          "50%": { 
+            transform: "translateX(-50%) translateY(-50%) rotate(180deg) scale(0.8)",
+            opacity: "0.4"
+          },
+          "75%": { 
+            transform: "translateX(-50%) translateY(-50%) rotate(270deg) scale(1.1)",
+            opacity: "0.7"
+          }
+        },
+        "laser-sweep": {
+          "0%": { transform: "translateX(-200px)", opacity: "0" },
+          "50%": { transform: "translateX(0px)", opacity: "1" },
+          "100%": { transform: "translateX(200px)", opacity: "0" }
         },
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
