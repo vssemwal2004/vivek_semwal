@@ -2,96 +2,322 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* COSMIC UNIVERSE PORTFOLIO DESIGN SYSTEM 
+   All colors, gradients, animations and effects defined here.
+   Colors MUST be HSL for perfect cosmic aesthetics.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cosmic Color Palette */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 100%;
+    
+    /* Deep Space Backgrounds */
+    --space-deep: 240 15% 2%;
+    --space-medium: 250 20% 8%;
+    --space-surface: 250 15% 12%;
+    
+    /* Purple Laser Spectrum */
+    --purple-neon: 270 100% 75%;
+    --purple-electric: 260 85% 65%;
+    --purple-cosmic: 280 70% 55%;
+    --purple-dark: 270 50% 25%;
+    
+    /* Cyan Laser Highlights */
+    --cyan-bright: 180 100% 50%;
+    --cyan-electric: 190 100% 60%;
+    --cyan-glow: 170 80% 70%;
+    
+    /* Holographic Effects */
+    --hologram-1: 300 100% 80%;
+    --hologram-2: 240 100% 70%;
+    --hologram-3: 180 100% 60%;
+    
+    /* Card and UI Elements */
+    --card: 250 20% 8%;
+    --card-foreground: 0 0% 95%;
+    --card-border: 270 50% 25%;
+    
+    /* Interactive States */
+    --primary: 270 100% 75%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 250 15% 12%;
+    --secondary-foreground: 0 0% 95%;
+    
+    /* Glassmorphism */
+    --glass-bg: 250 20% 8%;
+    --glass-border: 270 50% 30%;
+    
+    /* Lens Flare Colors */
+    --lens-flare-1: 270 100% 75%;
+    --lens-flare-2: 300 100% 80%;
+    --lens-flare-3: 180 100% 60%;
+    
+    /* Particle Colors */
+    --particle-white: 0 0% 100%;
+    --particle-purple: 270 80% 70%;
+    --particle-cyan: 180 100% 60%;
+    
+    /* Energy Beam Effects */
+    --beam-core: 0 0% 100%;
+    --beam-glow: 270 100% 75%;
+    --beam-outer: 270 50% 50%;
+    
+    /* Standard UI */
+    --muted: 250 15% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 270 100% 75%;
+    --accent-foreground: 240 10% 4%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 270 30% 18%;
+    --input: 250 20% 12%;
+    --ring: 270 100% 75%;
+    --radius: 0.75rem;
+  }
+}
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: radial-gradient(ellipse at center, hsl(var(--space-medium)) 0%, hsl(var(--space-deep)) 100%);
   }
+  
+  /* Cosmic Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--space-deep));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(var(--purple-neon)), hsl(var(--cyan-bright)));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(var(--hologram-1)), hsl(var(--hologram-3)));
+  }
+}
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply backdrop-blur-md bg-opacity-10 border border-opacity-20;
+    background: rgba(99, 102, 241, 0.05);
+    border-color: hsl(var(--glass-border) / 0.3);
+    box-shadow: 
+      0 8px 32px rgba(139, 92, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Holographic Border Effect */
+  .holographic-border {
+    position: relative;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, 
+      hsl(var(--hologram-1) / 0.3), 
+      hsl(var(--hologram-2) / 0.3), 
+      hsl(var(--hologram-3) / 0.3)
+    ) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+  }
+  
+  /* Laser Text Effect */
+  .laser-text {
+    background: linear-gradient(45deg, 
+      hsl(var(--purple-neon)), 
+      hsl(var(--cyan-bright)), 
+      hsl(var(--hologram-1))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px hsl(var(--purple-neon) / 0.5));
+  }
+  
+  /* Energy Button */
+  .energy-button {
+    @apply relative overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--purple-cosmic)), hsl(var(--purple-electric)));
+    box-shadow: 
+      0 0 20px hsl(var(--purple-neon) / 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  .energy-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  .energy-button:hover::before {
+    left: 100%;
+  }
+  
+  .energy-button:hover {
+    box-shadow: 
+      0 0 30px hsl(var(--purple-neon) / 0.6),
+      0 0 60px hsl(var(--cyan-bright) / 0.3);
+    transform: translateY(-2px);
+  }
+  
+  /* Particle Trail */
+  .particle-trail {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, hsl(var(--purple-neon)), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-fade 1s ease-out forwards;
+  }
+  
+  /* Lens Flare */
+  .lens-flare {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: lens-flare-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Fog Animation */
+  .cosmic-fog {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, 
+      hsl(var(--purple-cosmic) / 0.1) 0%, 
+      transparent 70%
+    );
+    animation: fog-drift 20s linear infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom Animations */
+  @keyframes particle-fade {
+    0% { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+    100% { 
+      opacity: 0; 
+      transform: scale(0.3); 
+    }
+  }
+  
+  @keyframes lens-flare-pulse {
+    0%, 100% { 
+      opacity: 0.3; 
+      transform: scale(1); 
+    }
+    50% { 
+      opacity: 0.8; 
+      transform: scale(1.2); 
+    }
+  }
+  
+  @keyframes fog-drift {
+    0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+    100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+  }
+  
+  @keyframes starfield-twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes hologram-shift {
+    0%, 100% { 
+      background-position: 0% 0%; 
+    }
+    50% { 
+      background-position: 100% 100%; 
+    }
+  }
+  
+  @keyframes laser-beam {
+    0% { 
+      transform: translateX(-100%) scaleX(0); 
+    }
+    50% { 
+      transform: translateX(0%) scaleX(1); 
+    }
+    100% { 
+      transform: translateX(100%) scaleX(0); 
+    }
+  }
+  
+  @keyframes cosmic-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes energy-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--purple-neon) / 0.3); 
+    }
+    50% { 
+      box-shadow: 
+        0 0 40px hsl(var(--purple-neon) / 0.6),
+        0 0 80px hsl(var(--cyan-bright) / 0.3); 
+    }
+  }
+  
+  /* Utility Classes */
+  .animate-starfield { animation: starfield-twinkle 3s ease-in-out infinite; }
+  .animate-hologram { animation: hologram-shift 4s ease-in-out infinite; }
+  .animate-laser-beam { animation: laser-beam 2s ease-in-out infinite; }
+  .animate-cosmic-rotate { animation: cosmic-rotate 20s linear infinite; }
+  .animate-energy-pulse { animation: energy-pulse 2s ease-in-out infinite; }
+  
+  /* Gradient Utilities */
+  .bg-cosmic-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--space-deep)) 0%, 
+      hsl(var(--space-medium)) 50%, 
+      hsl(var(--purple-dark)) 100%
+    );
+  }
+  
+  .bg-laser-gradient {
+    background: linear-gradient(45deg, 
+      hsl(var(--purple-neon)), 
+      hsl(var(--cyan-bright))
+    );
+  }
+  
+  .bg-hologram-gradient {
+    background: linear-gradient(45deg, 
+      hsl(var(--hologram-1)), 
+      hsl(var(--hologram-2)), 
+      hsl(var(--hologram-3))
+    );
+  }
+  
+  /* Text Effects */
+  .text-cosmic { color: hsl(var(--purple-neon)); }
+  .text-laser { color: hsl(var(--cyan-bright)); }
+  .text-hologram { color: hsl(var(--hologram-1)); }
 }
 
 @layer base {

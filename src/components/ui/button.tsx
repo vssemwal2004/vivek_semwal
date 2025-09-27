@@ -15,11 +15,19 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        
+        // Cosmic variants using design system
+        energy: "energy-button text-foreground font-semibold rounded-lg px-6 py-3",
+        cosmic: "glass-card text-cosmic hover:text-hologram-1 border-purple-cosmic/30 hover:border-cyan-bright/50 transition-all duration-300",
+        laser: "bg-laser-gradient text-space-deep font-bold shadow-laser hover:shadow-energy transform hover:scale-105 transition-all duration-300",
+        hologram: "bg-hologram-gradient text-space-deep font-bold hover:animate-hologram transition-all duration-300",
+        ghost_cosmic: "text-foreground hover:bg-space-surface/20 hover:text-cyan-bright border border-transparent hover:border-purple-neon/30 transition-all duration-300"
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
+        xl: "h-12 rounded-lg px-10 text-base",
         icon: "h-10 w-10",
       },
     },
