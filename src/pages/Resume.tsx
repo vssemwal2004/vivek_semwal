@@ -184,7 +184,7 @@ export default function Resume() {
                       </div>
                       <div className="flex items-center space-x-1">
                         <MapPin className="w-4 h-4" />
-                        <span>Pathankot, Punjab</span>
+                       
                       </div>
                     </div>
 
